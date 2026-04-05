@@ -21,14 +21,14 @@ function toSdkMcpServers(config: ResolvedAcpxPluginConfig): McpServer[] {
   }));
 }
 
-function resolveProbeAgentName(config: ResolvedAcpxPluginConfig): string {
+function resolveProbeAgentName(): string {
   return DEFAULT_AGENT_NAME;
 }
 
 export async function probeEmbeddedRuntime(
   config: ResolvedAcpxPluginConfig,
 ): Promise<RuntimeHealthReport> {
-  const agentName = resolveProbeAgentName(config);
+  const agentName = resolveProbeAgentName();
   const agentCommand = resolveAgentCommand(agentName, config.agents);
   const client = new AcpClient({
     agentCommand,

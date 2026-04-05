@@ -55,7 +55,3 @@ export function resolveAgentCommand(agentName: string, overrides?: Record<string
   const registry = mergeAgentRegistry(overrides);
   return registry[normalized] ?? registry[AGENT_ALIASES[normalized] ?? normalized] ?? agentName;
 }
-
-export function listBuiltInAgents(overrides?: Record<string, string>): string[] {
-  return Object.keys(mergeAgentRegistry(overrides));
-}
